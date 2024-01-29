@@ -1,11 +1,19 @@
-const http = require('http');
+const express = require("express");
+const expressHandlebars = require("express-handlebars");
+
+const app = express();
+
+// configure Handlebars view engine
+app.engine(
+  "handlebars",
+  expressHandlebars({
+    defaultLayout: "main",
+  })
+);
+app.set("view engine", "handlebars");
+
 const port = 3000;
 
-const server = http.createServer((req,res)=>{
-    res.writeHead(200,{'Content-Type':'text/text'});
-    res.end("Hello there!");
-})
+app.get("/", (req, res) => res.render("home"));
 
-server.listen(port,()=>{
-    
-})
+app.listen(port, () => {});
