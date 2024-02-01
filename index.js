@@ -23,3 +23,10 @@ app.get('/get', (res, req) => {
 app.listen(port, () => {
 
 })
+
+/*
+    simply use this command in your terminal:
+    > curl -v http://localhost:3000/get
+    OR
+    > curl -v http://localhost:3000/get?id=<ID_FROM_0_TO_5>
+*/
